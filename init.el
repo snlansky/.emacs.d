@@ -61,6 +61,8 @@
 
 (global-hl-line-mode t)
 
+(load-theme 'monokai t)
+
 (global-company-mode t)
 
 (custom-set-variables
