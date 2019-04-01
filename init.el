@@ -6,8 +6,10 @@
 ;;(package-initialize)
 (when (>= emacs-major-version 24)
   (require 'package)
+  (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+			   ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
   (package-initialize)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages") t)
+  ;;(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages") t)
   )
 
 ;; add common lisp
@@ -16,6 +18,8 @@
 (defvar snlan/packages '(
 			 company
 			 monokai-theme
+			 hungry-delete
+			 spacemacs-theme
 			 ) "Default packages")
 (defun snlan/packages-installed-p ()
   (loop for pkg in snlan/packages
@@ -61,7 +65,7 @@
 
 (global-hl-line-mode t)
 
-(load-theme 'monokai t)
+;;(load-theme 'monokai t)
 
 (global-company-mode t)
 
@@ -70,9 +74,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (spacemacs-dark)))
  '(custom-safe-themes
    (quote
-    ("bd7b7c5df1174796deefce5debc2d976b264585d51852c962362be83932873d9" default)))
+    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "bd7b7c5df1174796deefce5debc2d976b264585d51852c962362be83932873d9" default)))
  '(package-selected-packages (quote (company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
