@@ -20,8 +20,11 @@
 			 monokai-theme
 			 hungry-delete
 			 spacemacs-theme
-			 smex
 			 swiper
+			 counsel
+			 smartparens
+			 js2-mode
+			 nodejs-repl
 			 ) "Default packages")
 
 (setq package-selected-packages snlan/packages)
@@ -40,10 +43,28 @@
 (require 'hungry-delete)
 (global-hungry-delete-mode)
 
-;; config for smex
-(require 'smex) 
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
+(require 'smartparens-config)
+;;(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
+(smartparens-global-mode t)
+
+;; config js2-mode for js files
+(setq auto-mode-alist
+      (append
+       '(("\\.js\\'" . js2-mode))
+       auto-mode-alist))
+
+
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
+;; enable this if you want `swiper' to use it
+;; (setq search-default-mode #'char-fold-to-regexp)
+(global-set-key "\C-s" 'swiper)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "C-h f") 'counsel-describe-function)
+(global-set-key (kbd "C-h v") 'counsel-describe-variable)
 
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -86,11 +107,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-idle-delay 0.08)
+ '(company-minimum-prefix-length 1)
  '(custom-enabled-themes (quote (spacemacs-dark)))
  '(custom-safe-themes
    (quote
-    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "bd7b7c5df1174796deefce5debc2d976b264585d51852c962362be83932873d9" default)))
- )
+    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "bd7b7c5df1174796deefce5debc2d976b264585d51852c962362be83932873d9" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
