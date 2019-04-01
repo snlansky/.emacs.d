@@ -20,7 +20,12 @@
 			 monokai-theme
 			 hungry-delete
 			 spacemacs-theme
+			 smex
+			 swiper
 			 ) "Default packages")
+
+(setq package-selected-packages snlan/packages)
+
 (defun snlan/packages-installed-p ()
   (loop for pkg in snlan/packages
 	when (not (package-installed-p pkg)) do (return nil)
@@ -32,6 +37,13 @@
     (when (not (package-installed-p pkg))
       (package-install pkg))))
 
+(require 'hungry-delete)
+(global-hungry-delete-mode)
+
+;; config for smex
+(require 'smex) 
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
 
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -78,7 +90,7 @@
  '(custom-safe-themes
    (quote
     ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "bd7b7c5df1174796deefce5debc2d976b264585d51852c962362be83932873d9" default)))
- '(package-selected-packages (quote (company))))
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
