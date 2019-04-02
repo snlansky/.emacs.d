@@ -3,66 +3,15 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-;;(package-initialize)
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-			   ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
-  (package-initialize)
-  ;;(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages") t)
-  )
 
-;; add common lisp
-(require 'cl)
-;; add whatever package you want here
-(defvar snlan/packages '(
-			 company
-			 monokai-theme
-			 hungry-delete
-			 spacemacs-theme
-			 swiper
-			 counsel
-			 smartparens
-			 js2-mode
-			 nodejs-repl
-			 exec-path-from-shell
-			 popwin
-			 ) "Default packages")
+(package-initialize)
 
-(setq package-selected-packages snlan/packages)
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
-(defun snlan/packages-installed-p ()
-  (loop for pkg in snlan/packages
-	when (not (package-installed-p pkg)) do (return nil)
-	finally (return t)))
-(unless (snlan/packages-installed-p)
-  (message "%s" "Refreshing package database...")
-  (package-refresh-contents)
-  (dolist (pkg snlan/packages)
-    (when (not (package-installed-p pkg))
-      (package-install pkg))))
+(require 'init-packages)
 
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+(setq ring-bell-function 'ignore)
 
-;; load init.el when it changed
-(global-auto-revert-mode t)
-(require 'hungry-delete)
-(global-hungry-delete-mode)
-
-(require 'smartparens-config)
-;;(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
-(smartparens-global-mode t)
-
-;; config js2-mode for js files
-(setq auto-mode-alist
-      (append
-       '(("\\.js\\'" . js2-mode))
-       auto-mode-alist))
-
-
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
 ;; enable this if you want `swiper' to use it
 ;; (setq search-default-mode #'char-fold-to-regexp)
@@ -73,6 +22,9 @@
 (global-set-key (kbd "C-h f") 'counsel-describe-function)
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
 
+;; load init.el when it changed
+(global-auto-revert-mode t)
+
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
@@ -80,6 +32,11 @@
 
 (linum-mode t)
 (global-linum-mode t)
+
+(abbrev-mode t)
+(define-abbrev-table 'global-abbrev-table '(
+					    ("8sn" "snlan")
+					    ))
 
 (defun open-my-init-file()
   (interactive)
@@ -105,16 +62,9 @@
 
 (global-hl-line-mode t)
 
-;;(load-theme 'monokai t)
-
 (global-set-key (kbd "C-h C-f") 'find-function)
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
-
-(require 'popwin)
-(popwin-mode t)
-
-(global-company-mode t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -123,16 +73,10 @@
  ;; If there is more than one, they won't work right.
  '(company-idle-delay 0.08)
  '(company-minimum-prefix-length 1)
- '(custom-enabled-themes (quote (spacemacs-dark)))
- '(custom-safe-themes
-   (quote
-    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "bd7b7c5df1174796deefce5debc2d976b264585d51852c962362be83932873d9" default))))
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-;; package source
-
