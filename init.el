@@ -9,6 +9,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 (require 'init-packages)
+(require 'init-ui)
 
 (setq ring-bell-function 'ignore)
 
@@ -25,10 +26,9 @@
 ;; load init.el when it changed
 (global-auto-revert-mode t)
 
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
 
-(setq inhibit-splash-screen t)
+
+
 
 (linum-mode t)
 (global-linum-mode t)
@@ -43,7 +43,7 @@
   (find-file "~/.emacs.d/init.el"))
 
 (global-set-key (kbd "<f2>") 'open-my-init-file)
-(setq-default cursor-type 'bar)
+
 (setq make-backup-files nil)
 
 (require 'org)
@@ -56,11 +56,11 @@
 
 (delete-selection-mode t)
 
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
+
 
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
-(global-hl-line-mode t)
+
 
 (global-set-key (kbd "C-h C-f") 'find-function)
 (global-set-key (kbd "C-h C-v") 'find-variable)
