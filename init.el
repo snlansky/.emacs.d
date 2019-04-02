@@ -25,6 +25,7 @@
 			 smartparens
 			 js2-mode
 			 nodejs-repl
+			 exec-path-from-shell
 			 ) "Default packages")
 
 (setq package-selected-packages snlan/packages)
@@ -39,6 +40,9 @@
   (dolist (pkg snlan/packages)
     (when (not (package-installed-p pkg))
       (package-install pkg))))
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 (require 'hungry-delete)
 (global-hungry-delete-mode)
@@ -99,6 +103,10 @@
 (global-hl-line-mode t)
 
 ;;(load-theme 'monokai t)
+
+(global-set-key (kbd "C-h C-f") 'find-function)
+(global-set-key (kbd "C-h C-v") 'find-variable)
+(global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
 (global-company-mode t)
 

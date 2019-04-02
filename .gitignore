@@ -12,20 +12,11 @@
 *.out
 
 .idea
-.build
-build/
-*.log
-bin/
-# tox
-.tox/
-# vscode settings
-.vscode
-maven_data.xml
-.settings
-.project
-.gradle
 .*.sw*
 .DS_Store
 recentf
 elpa
 auto-save-list
+recentf
+smex-items
+
