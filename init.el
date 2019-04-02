@@ -26,6 +26,7 @@
 			 js2-mode
 			 nodejs-repl
 			 exec-path-from-shell
+			 popwin
 			 ) "Default packages")
 
 (setq package-selected-packages snlan/packages)
@@ -44,6 +45,8 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
+;; load init.el when it changed
+(global-auto-revert-mode t)
 (require 'hungry-delete)
 (global-hungry-delete-mode)
 
@@ -107,6 +110,9 @@
 (global-set-key (kbd "C-h C-f") 'find-function)
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
+
+(require 'popwin)
+(popwin-mode t)
 
 (global-company-mode t)
 
