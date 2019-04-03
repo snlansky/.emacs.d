@@ -16,4 +16,9 @@
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
 (global-set-key (kbd "C-c p f") 'counsel-git)
+
+(global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+
+(global-set-key (kbd "s-/") 'hippie-expand)
+
 (provide 'init-keybindings)
