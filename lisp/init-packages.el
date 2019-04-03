@@ -21,6 +21,11 @@
 			 nodejs-repl
 			 exec-path-from-shell
 			 popwin
+			 go-mode
+			 company-go
+			 auto-complete
+			 go-autocomplete
+			 neotree
 			 ) "Default packages")
 
 (setq package-selected-packages snlan/packages)
@@ -37,7 +42,8 @@
       (package-install pkg))))
 
 (when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "GOPATH"))
 
 (require 'hungry-delete)
 (global-hungry-delete-mode)
@@ -61,5 +67,13 @@
 
 (require 'popwin)
 (popwin-mode t)
+
+(require 'go-mode)
+
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(ac-config-default)
+
+(global-set-key [f8] 'neotree-toggle)
 
 (provide 'init-packages)
