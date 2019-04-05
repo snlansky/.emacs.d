@@ -28,6 +28,8 @@
 			 neotree
 			 web-mode
 			 js2-refactor
+			 expand-region
+			 iedit
 			 ) "Default packages")
 
 (setq package-selected-packages snlan/packages)
@@ -108,5 +110,7 @@
 (ac-config-default)
 
 (global-set-key [f8] 'neotree-toggle)
+
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 (provide 'init-packages)
