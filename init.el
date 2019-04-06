@@ -17,7 +17,9 @@
 (require 'init-better-defaults)
 (require 'init-org)
 (require 'init-keybindings)
-;;(require 'init-golang)
+(require 'init-golang)
+(require 'go-flymake)
+(require 'go-flycheck)
 
 (setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
 (load-file custom-file)

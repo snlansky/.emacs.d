@@ -23,6 +23,7 @@
 			 popwin
 			 go-mode
 			 company-go
+			 flycheck
 			 auto-complete
 			 go-autocomplete
 			 neotree
