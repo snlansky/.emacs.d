@@ -25,7 +25,6 @@
 			 company-go
 			 flycheck
 			 auto-complete
-			 go-autocomplete
 			 neotree
 			 web-mode
 			 js2-refactor
