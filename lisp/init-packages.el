@@ -32,6 +32,7 @@
 			 expand-region
 			 iedit
 			 org-pomodoro
+			 helm-ag
 			 ) "Default packages")
 
 (setq package-selected-packages snlan/packages)
