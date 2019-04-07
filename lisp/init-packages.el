@@ -31,6 +31,7 @@
 			 js2-refactor
 			 expand-region
 			 iedit
+			 org-pomodoro
 			 ) "Default packages")
 
 (setq package-selected-packages snlan/packages)
@@ -93,11 +94,7 @@
 
   (setq indent-tabs-mode nil))
 
-(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
-
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
-(js2r-add-keybindings-with-prefix "C-c C-m")
-
 
 (load-theme 'spacemacs-dark t)
 
@@ -110,8 +107,6 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
-(global-set-key [f8] 'neotree-toggle)
-
-(global-set-key (kbd "C-=") 'er/expand-region)
+(require 'org-pomodoro)
 
 (provide 'init-packages)

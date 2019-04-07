@@ -21,4 +21,16 @@
 
 (global-set-key (kbd "s-/") 'hippie-expand)
 
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c r") 'org-capture)
+
+(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
+
+(js2r-add-keybindings-with-prefix "C-c C-m")
+
+(global-set-key (kbd "C-=") 'er/expand-region)
+
+(global-set-key [f8] 'neotree-toggle)
+
+
 (provide 'init-keybindings)
