@@ -23,7 +23,6 @@
 			 popwin
 			 go-mode
 			 company-go
-			 flycheck
 			 auto-complete
 			 go-autocomplete
 			 neotree
@@ -33,6 +32,8 @@
 			 iedit
 			 org-pomodoro
 			 helm-ag
+			 flycheck
+			 auto-yasnippet
 			 ) "Default packages")
 
 (setq package-selected-packages snlan/packages)
@@ -109,5 +110,13 @@
 (ac-config-default)
 
 (require 'org-pomodoro)
+
+(require 'yasnippet)
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
+
+(add-hook 'js2-mode-hook 'flycheck-mode)
+(add-hook 'go-mode 'flycheck-mode)
+
 
 (provide 'init-packages)
