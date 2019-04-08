@@ -3,8 +3,6 @@
 
 (add-hook 'go-mode-hook (lambda()
 			  (local-set-key (kbd "C-c C-k") 'godoc)))
-(add-hook 'go-mode-hook (lambda ()
-			  (local-set-key (kbd "C-c p") 'set-go-path)))
 (add-hook 'before-save-hook 'gofmt-before-save)
 (add-hook 'go-mode-hook (lambda ()
 			  (setq indent-tabs-mode t)))
