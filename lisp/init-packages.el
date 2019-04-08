@@ -33,6 +33,11 @@
 			 helm-ag
 			 flycheck
 			 auto-yasnippet
+			 evil
+			 evil-leader
+			 window-numbering
+			 evil-surround
+			 which-key
 			 ) "Default packages")
 
 (setq package-selected-packages snlan/packages)
@@ -117,5 +122,44 @@
 (add-hook 'js2-mode-hook 'flycheck-mode)
 (add-hook 'go-mode 'flycheck-mode)
 
+(evil-mode 1)
+(setcdr evil-insert-state-map nil)
+(define-key evil-insert-state-map [escape] 'evil-normal-state)
+
+(global-evil-leader-mode)
+
+;; key like vim
+(evil-leader/set-key
+  "ff" 'find-file
+  "fr" 'recentf-open-files
+  "bb" 'switch-to-buffer
+  "bk" 'kill-buffer
+  "pf" 'counsel-git
+  "ps" 'helm-do-ag-project-root
+  "0"  'select-window-0
+  "1"  'select-window-1
+  "2"  'select-window-2
+  "3"  'select-window-3
+  "4"  'select-window-4
+  "5"  'select-window-5
+  "6"  'select-window-6
+  "7"  'select-window-7
+  "8"  'select-window-8
+  "w/" 'split-window-right
+  "w-" 'split-window-below
+  ":"  'counsel-M-x
+  "wm" 'delete-other-windows
+  )
+
+(window-numbering-mode 1)
+
+;;(require 'powerline)
+;;(powerline-default-theme)
+
+(require 'evil-surround)
+(global-evil-surround-mode 1)
+
+(which-key-mode 1)
+;;(setq which-key-side-window-location 'right)
 
 (provide 'init-packages)
