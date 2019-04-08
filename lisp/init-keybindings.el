@@ -47,4 +47,9 @@
 (global-set-key (kbd "H-y") #'aya-expand)
 
 
+;; auto-complete
+(define-key ac-menu-map "\C-n" 'ac-next)
+(define-key ac-menu-map "\C-p" 'ac-previous)
+
+
 (provide 'init-keybindings)

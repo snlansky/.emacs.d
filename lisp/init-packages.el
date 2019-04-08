@@ -22,7 +22,7 @@
 			 exec-path-from-shell
 			 popwin
 			 go-mode
-       go-autocomplete
+			 go-autocomplete
 			 auto-complete
 			 neotree
 			 web-mode
@@ -106,6 +106,7 @@
 (require 'go-autocomplete)
 (require 'auto-complete-config)
 (ac-config-default)
+(setq ac-use-menu-map t)
 
 (require 'org-pomodoro)
 
