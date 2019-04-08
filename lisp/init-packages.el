@@ -22,6 +22,7 @@
 			 exec-path-from-shell
 			 popwin
 			 go-mode
+       go-autocomplete
 			 auto-complete
 			 neotree
 			 web-mode
@@ -101,8 +102,7 @@
 (require 'popwin)
 (popwin-mode t)
 
-(require 'go-mode)
-
+;; golang
 (require 'go-autocomplete)
 (require 'auto-complete-config)
 (ac-config-default)
