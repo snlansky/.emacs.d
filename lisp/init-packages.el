@@ -160,6 +160,6 @@
 (global-evil-surround-mode 1)
 
 (which-key-mode 1)
-;;(setq which-key-side-window-location 'right)
+(setq which-key-side-window-location 'right)
 
 (provide 'init-packages)
