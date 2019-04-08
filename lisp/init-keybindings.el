@@ -51,5 +51,8 @@
 (define-key ac-menu-map "\C-n" 'ac-next)
 (define-key ac-menu-map "\C-p" 'ac-previous)
 
+;; set front szie
+(global-set-key (kbd "C--") 'text-scale-increase)
+(global-set-key (kbd "C-+") 'text-scale-decrease)
 
 (provide 'init-keybindings)
