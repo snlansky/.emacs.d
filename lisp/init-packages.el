@@ -22,7 +22,6 @@
 			 exec-path-from-shell
 			 popwin
 			 go-mode
-			 company-go
 			 auto-complete
 			 neotree
 			 web-mode
