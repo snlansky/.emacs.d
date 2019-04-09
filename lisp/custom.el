@@ -9,7 +9,7 @@
  '(evil-want-C-u-scroll t)
  '(package-selected-packages
    (quote
-    (evil company monokai-theme hungry-delete spacemacs-theme swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin go-mode go-autocomplete auto-complete neotree web-mode js2-refactor expand-region iedit org-pomodoro helm-ag flycheck auto-yasnippet))))
+    (evil-leader evil-surround goto-chg helm-core multiple-cursors pallet pkg-info popup s shut-up undo-tree which-key window-numbering yasnippet evil company monokai-theme hungry-delete spacemacs-theme swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin go-mode go-autocomplete auto-complete neotree web-mode js2-refactor expand-region iedit org-pomodoro helm-ag flycheck auto-yasnippet))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

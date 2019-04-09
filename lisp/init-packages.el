@@ -1,58 +1,6 @@
 ;; add common lisp
 (require 'cl)
 
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-			   ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
-  ;;(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages") t)
-  )
-
-;; add whatever package you want here
-(defvar snlan/packages '(
-			 company
-			 monokai-theme
-			 hungry-delete
-			 spacemacs-theme
-			 swiper
-			 counsel
-			 smartparens
-			 js2-mode
-			 nodejs-repl
-			 exec-path-from-shell
-			 popwin
-			 go-mode
-			 go-autocomplete
-			 auto-complete
-			 neotree
-			 web-mode
-			 js2-refactor
-			 expand-region
-			 iedit
-			 org-pomodoro
-			 helm-ag
-			 flycheck
-			 auto-yasnippet
-			 evil
-			 evil-leader
-			 window-numbering
-			 evil-surround
-			 which-key
-			 ) "Default packages")
-
-(setq package-selected-packages snlan/packages)
-
-(defun snlan/packages-installed-p ()
-  (loop for pkg in snlan/packages
-	when (not (package-installed-p pkg)) do (return nil)
-	finally (return t)))
-(unless (snlan/packages-installed-p)
-  (message "%s" "Refreshing package database...")
-  (package-refresh-contents)
-  (dolist (pkg snlan/packages)
-    (when (not (package-installed-p pkg))
-      (package-install pkg))))
-
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "GOPATH"))

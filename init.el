@@ -6,6 +6,11 @@
 
 (package-initialize)
 
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)    ;; 类似于 package-initialize
+(require 'pallet)
+(pallet-mode t)      ;; 激活 pallet, 在安装包时将 Cask 文件写入相应信息
+
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 (defun open-my-init-file()
