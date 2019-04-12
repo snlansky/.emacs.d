@@ -1,5 +1,6 @@
 (source "gnu" "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
 (source "melpa" "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+(source "melpa-stable" "http://elpa.emacs-china.org/melpa-stable/")
 
 (depends-on "alert")
 (depends-on "ansi")
@@ -47,6 +48,7 @@
 (depends-on "spacemacs-theme")
 (depends-on "swiper")
 (depends-on "undo-tree")
+(depends-on "use-package")
 (depends-on "web-mode")
 (depends-on "which-key")
 (depends-on "window-numbering")

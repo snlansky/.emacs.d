@@ -1,6 +1,3 @@
-(require 'go-flymake)
-(require 'go-flycheck)
-
 (add-hook 'go-mode-hook (lambda()
 			  (local-set-key (kbd "C-c C-k") 'godoc)))
 (add-hook 'before-save-hook 'gofmt-before-save)
